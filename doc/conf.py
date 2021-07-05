@@ -29,7 +29,9 @@ release = "0.0.1"
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
-extensions = []
+extensions = [
+    "sphinx_lfs_content",
+]
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = []
@@ -52,23 +54,4 @@ html_theme = "sphinx_rtd_theme"
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = []
 
-# Make sure that classes are documented by their init method
-autoclass_content = "init"
-
-if os.environ.get("READTHEDOCS", "False") == "True":
-
-    # By default, Read the Docs does not recognize git lfs content
-    # This workaround to install and execute git-lfs on Read the Docs
-    # is taken from https://github.com/readthedocs/readthedocs.org/issues/1846
-
-    def syscall(cmd):
-        path = os.path.abspath(os.path.split(os.getcwd())[0])
-        env = os.environ
-        env["PATH"] = os.environ["PATH"] + os.path.pathsep + path
-        subprocess.check_call(cmd.split(), env=env, cwd=path)
-
-    syscall("wget https://github.com/git-lfs/git-lfs/releases/download/v2.7.1/git-lfs-linux-amd64-v2.7.1.tar.gz")
-    syscall("tar xvfz git-lfs-linux-amd64-v2.7.1.tar.gz")
-    syscall("git-lfs install")
-    syscall("git-lfs fetch")
-    syscall("git-lfs checkout")
+lfs_content_path_to_git_root = ".."

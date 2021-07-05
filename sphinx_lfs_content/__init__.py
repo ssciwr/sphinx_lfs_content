@@ -35,7 +35,7 @@ def lfs_setup(_, config):
 
         # Unpack the tarball
         with tarfile.open(os.path.join(tmp_dir, "git-lfs.tar.gz"), "r:gz") as tar:
-            tar.extractall(path=tmp.name)
+            tar.extractall(path=tmp_dir)
 
         # Setup a modified environment that has the temporary directory in PATH
         # This works around a bug in git-lfs where git-lfs is called recursively,

@@ -65,7 +65,6 @@ if os.environ.get("READTHEDOCS", "False") == "True":
         env=os.environ
         env["PATH"] = os.environ["PATH"] + os.path.pathsep + os.getcwd()
         env["GIT_DIR"] = os.path.join(os.getcwd(), "..", ".git")
-        print(f"I was setting GIT_DIR to: {env['GIT_DIR']}")
         subprocess.check_call(cmd.split(), env=env)
 
     syscall("wget https://github.com/git-lfs/git-lfs/releases/download/v2.7.1/git-lfs-linux-amd64-v2.7.1.tar.gz")
@@ -73,3 +72,5 @@ if os.environ.get("READTHEDOCS", "False") == "True":
     syscall("git-lfs install")
     syscall("git-lfs fetch")
     syscall("git-lfs checkout")
+
+    print(f"Image size: {os.path.getsize(os.path.join(os.getcwd(), 'test.png'))}")

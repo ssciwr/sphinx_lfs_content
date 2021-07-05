@@ -4,7 +4,7 @@ import os
 
 # Read the contents of README.md
 this_directory = os.path.abspath(os.path.dirname(__file__))
-with open(path.join(this_directory, "README.md"), encoding="utf-8") as f:
+with open(os.path.join(this_directory, "README.md"), encoding="utf-8") as f:
     long_description = f.read()
 
 

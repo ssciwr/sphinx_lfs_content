@@ -22,7 +22,7 @@ copyright = "2021, Scientific Software Center, Heidelberg University"
 author = "Dominic Kempf"
 
 # The full version, including alpha/beta/rc tags
-release = "0.0.1"
+release = "0.2.0"
 
 # -- General configuration ---------------------------------------------------
 
@@ -32,10 +32,13 @@ extensions = [
     "sphinx_lfs_content",
 ]
 
-# The only config value specific to sphinx_lfs_content
+# Configuration values specific to sphinx_lfs_content
+
 # This is the relative path from the location of conf.py to the git
 # repository root.
 lfs_content_path_to_git_root = ".."
+
+# These commands will be executed after the LFS checkout. This is just a test.
 lfs_content_post_commands = [
     "test $(wc -c test.png | awk '{print $1}') -eq 78713"
 ]

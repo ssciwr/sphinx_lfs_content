@@ -29,7 +29,7 @@ def lfs_setup(_, config):
         raise ValueError("CheckSum of git-lfs tarball was incorrect!")
 
     # Write it to file (can this be short cut and merged with unpacking?)
-    with open("git-lfs.tar.gz", "w") as tar:
+    with open("git-lfs.tar.gz", "wb") as tar:
         tar.write(git_lfs_content)
 
     # Unpack the tarball

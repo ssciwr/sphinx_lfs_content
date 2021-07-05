@@ -66,22 +66,11 @@ if os.environ.get("READTHEDOCS", "False") == "True":
         os.chdir(os.path.split(wdir)[0])
         env=os.environ
         env["PATH"] = os.environ["PATH"] + os.path.pathsep + os.getcwd()
-        #env["GIT_DIR"] = os.path.join(os.getcwd(), "..", ".git")
-        #env["GIT_WORK_TREE"] = os.path.join(os.getcwd(), "..", ".git")
         subprocess.check_call(cmd.split(), env=env)
         os.chdir(wdir)
 
     syscall("wget https://github.com/git-lfs/git-lfs/releases/download/v2.7.1/git-lfs-linux-amd64-v2.7.1.tar.gz")
-    
-    sys.stdout.write(f"GIT_DIR: {os.environ.get('GIT_DIR', 'NOTSET')}\n")
-    sys.stdout.write(f"Toplevel git dir without modifying GIT_DIR: {subprocess.run('git rev-parse --show-toplevel'.split(), stdout=subprocess.PIPE).stdout.decode('utf-8')}\n")
-
-    sys.stdout.write("Toplevel git dir with modifying GIT_DIR\n")
-    syscall("git rev-parse --show-toplevel")
     syscall("tar xvfz git-lfs-linux-amd64-v2.7.1.tar.gz")
     syscall("git-lfs install")
     syscall("git-lfs fetch")
     syscall("git-lfs checkout")
-
-    print(f"Working dir: {os.getcwd()}")
-    print(subprocess.run(['ls', '--full'], stdout=subprocess.PIPE).stdout.decode('utf-8'))

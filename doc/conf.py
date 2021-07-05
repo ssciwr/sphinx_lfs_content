@@ -62,8 +62,10 @@ if os.environ.get("READTHEDOCS", "False") == "True":
     # is taken from https://github.com/readthedocs/readthedocs.org/issues/1846
 
     def syscall(cmd):
-        subprocess.check_call(cmd.split(), env={"PATH": os.environ["PATH"] + os.path.pathsep + os.getcwd(), "GIT_DIR": os.path.join(os.getcwd(), "..", ".git")
-    })
+        env=os.environ
+        env["PATH"] = os.environ["PATH"] + os.path.pathsep + os.getcwd()
+        env["GIT_DIR"] = os.path.join(os.getcwd(), "..", ".git")
+        subprocess.check_call(cmd.split(), env=env)
 
     syscall("wget https://github.com/git-lfs/git-lfs/releases/download/v2.7.1/git-lfs-linux-amd64-v2.7.1.tar.gz")
     syscall("tar xvfz git-lfs-linux-amd64-v2.7.1.tar.gz")

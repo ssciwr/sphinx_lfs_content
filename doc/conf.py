@@ -74,4 +74,4 @@ if os.environ.get("READTHEDOCS", "False") == "True":
     syscall("git-lfs checkout")
 
     print(f"Working dir: {os.getcwd()}")
-    print(subprocess.run(['ls', '--full'], stdout=subprocess.PIPE).stdout)
+    print(subprocess.run(['ls', '--full'], stdout=subprocess.PIPE).stdout.decode('utf-8'))

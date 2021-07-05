@@ -36,3 +36,6 @@ extensions = [
 # This is the relative path from the location of conf.py to the git
 # repository root.
 lfs_content_path_to_git_root = ".."
+lfs_content_post_commands = [
+    "test $(wc -c test.png | awk '{print $1}') -eq 78713"
+]

@@ -48,9 +48,14 @@ def lfs_setup(_, config):
         subprocess.check_call("git-lfs fetch".split(), env=env, cwd=gitroot)
         subprocess.check_call("git-lfs checkout".split(), env=env, cwd=gitroot)
 
+    # Execute all of the given post commands
+    for cmd in config.lfs_content_post_commands:
+        subprocess.check_call(cmd, shell=True)
+
 
 def setup(app):
     app.add_config_value("lfs_content_path_to_git_root", ".", rebuild="")
+    app.add_config_value("lfs_content_post_commands", [], rebuild="")
     app.connect("config-inited", lfs_setup)
 
     return {"version": "0.1.0", "parallel_read_safe": True}

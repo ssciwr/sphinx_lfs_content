@@ -40,6 +40,10 @@ The configuration value `lfs_content_path_to_git_root` needs to be given despite
 fact that this information could be retrieved with `git rev-parse --show-toplevel` in
 order to make the extension more robust against [recent build failures on ReadTheDocs](https://github.com/readthedocs/readthedocs.org/issues/8288).
 
+Additionally, a configuration value `lfs_content_post_commands` is available. It accepts a list
+of strings with commands that will be executed after the git-lfs checkout was performed.
+This can be used to resolve chicken-egg situations with other setup code.
+
 ## Restrictions
 
 The extension is very likely to only work on Linux right now, as it does not properly select the `git-lfs` archive to download.

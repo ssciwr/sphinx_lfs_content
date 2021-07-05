@@ -65,6 +65,7 @@ if os.environ.get("READTHEDOCS", "False") == "True":
         env=os.environ
         env["PATH"] = os.environ["PATH"] + os.path.pathsep + os.getcwd()
         env["GIT_DIR"] = os.path.join(os.getcwd(), "..", ".git")
+        env["GIT_WORK_TREE"] = os.path.join(os.getcwd(), "..", ".git")
         subprocess.check_call(cmd.split(), env=env)
 
     print(f"GIT_DIR: {os.environ.get('GIT_DIR', 'NOTSET')}")

@@ -28,7 +28,7 @@ def lfs_setup(_, config):
         raise ValueError("CheckSum of git-lfs tarball was incorrect!")
 
     # Create a temporary directory to install git-lfs into
-    with tempfile.TemoraryDirectory() as tmp_dir:
+    with tempfile.TemporaryDirectory() as tmp_dir:
         # Write it to file (can this be short cut and merged with unpacking?)
         with open(os.path.join(tmp_dir, "git-lfs.tar.gz"), "wb") as tar:
             tar.write(git_lfs_content)

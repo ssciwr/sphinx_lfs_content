@@ -15,9 +15,11 @@ def lfs_setup(_, config):
     # If we already have git-lfs, we do nothing
     if shutil.which("git-lfs"):
         return
-    
+
     # Determine the git root directory
-    gitroot = os.path.abspath(os.path.join(os.getcwd(), config.lfs_content_path_to_git_root))
+    gitroot = os.path.abspath(
+        os.path.join(os.getcwd(), config.lfs_content_path_to_git_root)
+    )
 
     # Download the latest git-lfs tarball and check its checksum
     git_lfs_content = requests.get(GIT_LFS_FILE).content
@@ -32,7 +34,7 @@ def lfs_setup(_, config):
             tar.write(git_lfs_content)
 
         # Unpack the tarball
-        with tarfile.open(os.path.join(tmp_dir, "git-lfs.tar.gz")", "r:gz") as tar:
+        with tarfile.open(os.path.join(tmp_dir, "git-lfs.tar.gz"), "r:gz") as tar:
             tar.extractall(path=tmp.name)
 
         # Setup a modified environment that has the temporary directory in PATH
@@ -48,10 +50,7 @@ def lfs_setup(_, config):
 
 
 def setup(app):
-    app.add_config_value("lfs_content_path_to_git_root", ".", rebuild='')
-    app.connect('config-inited', lfs_setup)
+    app.add_config_value("lfs_content_path_to_git_root", ".", rebuild="")
+    app.connect("config-inited", lfs_setup)
 
-    return {
-        "version": "0.1.0",
-        "parallel_read_safe": True
-    }
+    return {"version": "0.1.0", "parallel_read_safe": True}

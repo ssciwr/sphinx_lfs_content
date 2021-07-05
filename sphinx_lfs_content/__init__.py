@@ -9,7 +9,7 @@ def lfs_setup(_, config):
         return
     
     # Determine the git root directory
-    gitroot = os.path.abspath(os.path.join(os.getcwd(), config.get("lfs_content_path_to_git_root", ".")))
+    gitroot = os.path.abspath(os.path.join(os.getcwd(), config.lfs_content_path_to_git_root))
 
     # Setup a modified environment that has the gitroot in PATH
     env = os.environ
@@ -27,7 +27,7 @@ def lfs_setup(_, config):
 
 
 def setup(app):
-    app.add_config_value("lfs_content_path_to_git_root", None, rebuild='')
+    app.add_config_value("lfs_content_path_to_git_root", ".", rebuild='')
     app.connect('config-inited', lfs_setup)
 
     return {

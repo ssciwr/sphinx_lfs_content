@@ -22,7 +22,7 @@ setup(
     ],
     classifiers=[
         "Programming Language :: Python :: 3",
-        "Operating System :: Linux ",
+        "Operating System :: Unix ",
         "License :: OSI Approved :: MIT License",
     ],
 )

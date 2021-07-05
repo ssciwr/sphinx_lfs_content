@@ -1,5 +1,8 @@
 # sphinx_lfs_content
 
+[![PyPI version](https://badge.fury.io/py/sphinx-lfs-content.svg)](https://badge.fury.io/py/sphinx-lfs-content)
+[![Documentation Status](https://readthedocs.org/projects/sphinx-lfs-content/badge/?version=latest)](https://sphinx-lfs-content.readthedocs.io/en/latest/?badge=latest)
+
 Git LFS is a popular method to store large files like e.g. documentation assets in git repositories.
 Building such documentation on a system without Git LFS will typically result in broken documentation. 
 `sphinx_lfs_content` is a minimalistic Sphinx extension that ensures that `git-lfs` is installed and otherwise installs it and fetches LFS content.

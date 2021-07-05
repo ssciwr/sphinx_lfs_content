@@ -36,13 +36,10 @@ def lfs_setup(_, config):
     with tarfile.open("git-lfs.tar.gz", "r:gz") as tar:
         tar.extractall(path=gitroot)
 
-    # Define a convenience function for the following sys calls
-    def syscall(cmd):
-        subprocess.check_call(cmd.split(), env=env, cwd=gitroot)
-
-    syscall("git-lfs install")
-    syscall("git-lfs fetch")
-    syscall("git-lfs checkout")
+    # Fetch the LFS content of the repository
+    subprocess.check_call("git-lfs install".split(), env=env, cwd=gitroot)
+    subprocess.check_call("git-lfs fetch".split(), env=env, cwd=gitroot)
+    subprocess.check_call("git-lfs checkout".split(), env=env, cwd=gitroot)
 
 
 def setup(app):

@@ -34,7 +34,7 @@ def lfs_setup(_, config):
 
     # Unpack the tarball
     with tarfile.open("git-lfs.tar.gz", "r:gz") as tar:
-        tar.extractall()
+        tar.extractall(path=gitroot)
 
     # Define a convenience function for the following sys calls
     def syscall(cmd):

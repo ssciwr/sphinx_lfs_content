@@ -67,6 +67,11 @@ if os.environ.get("READTHEDOCS", "False") == "True":
         env["GIT_DIR"] = os.path.join(os.getcwd(), "..", ".git")
         subprocess.check_call(cmd.split(), env=env)
 
+    print(f"GIT_DIR: {os.environ.get('GIT_DIR', 'NOTSET')}")
+    print(f"Toplevel git dir without modifying GIT_DIR: {subprocess.run('git rev-parse --show-toplevel'.split(), stdout=subprocess.PIPE).stdout.decode('utf-8')}")
+
+    print("Toplevel git dir with modifying GIT_DIR")
+    syscall("git rev-parse --show-toplevel")
     syscall("wget https://github.com/git-lfs/git-lfs/releases/download/v2.7.1/git-lfs-linux-amd64-v2.7.1.tar.gz")
     syscall("tar xvfz git-lfs-linux-amd64-v2.7.1.tar.gz")
     syscall("git-lfs install")

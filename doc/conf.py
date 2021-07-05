@@ -73,4 +73,5 @@ if os.environ.get("READTHEDOCS", "False") == "True":
     syscall("git-lfs fetch")
     syscall("git-lfs checkout")
 
-    print(f"Image size: {os.path.getsize(os.path.join(os.getcwd(), 'test.png'))}")
+    print(f"Working dir: {os.getcwd()}")
+    print(subprocess.run(['ls', '--full'], stdout=subprocess.PIPE).stdout)

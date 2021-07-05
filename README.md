@@ -39,4 +39,4 @@ order to make the extension more robust against [recent build failures on ReadTh
 
 ## Restrictions
 
-The extension is very likely to only work on Linux right now.
+The extension is very likely to only work on Linux right now, as it does not properly select the `git-lfs` archive to download.

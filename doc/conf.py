@@ -28,6 +28,7 @@ release = "0.0.1"
 
 # Enabled Sphinx extensions
 extensions = [
+    "m2r2",
     "sphinx_lfs_content",
 ]
 

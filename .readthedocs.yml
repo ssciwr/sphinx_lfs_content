@@ -6,3 +6,7 @@ sphinx:
 
 formats:
   - htmlzip
+
+python:
+  install:
+    requirements: requirements-dev.txt

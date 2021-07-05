@@ -4,4 +4,5 @@ sphinx:
   builder: singlehtml
   configuration: doc/conf.py
 
-formats: htmlzip
+formats:
+  - htmlzip

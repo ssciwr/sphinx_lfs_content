@@ -8,6 +8,9 @@ setup(
     description="Ensure existence of LFS content in your LFS builds",
     long_description="",
     packages=find_packages(),
+    install_requires=[
+        "requests",
+    ],
     classifiers=[
         "Programming Language :: Python :: 3",
         "Operating System :: Linux ",

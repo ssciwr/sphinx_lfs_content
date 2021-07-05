@@ -9,4 +9,4 @@ formats:
 
 python:
   install:
-    requirements: requirements-dev.txt
+    - requirements: requirements-dev.txt

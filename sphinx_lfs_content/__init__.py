@@ -2,6 +2,7 @@ import hashlib
 import os
 import requests
 import shutil
+import sphinx
 import subprocess
 import tarfile
 import tempfile
@@ -12,14 +13,12 @@ GIT_LFS_CHECKSUM = "03197488f7be54cfc7b693f0ed6c75ac155f5aaa835508c64d68ec8f308b
 
 
 def lfs_setup(_, config):
+    if config.lfs_content_path_to_git_root is not None:
+        raise sphinx.errors.SphinxWarning("The lfs_content_path_to_git_root configuration value is now obsolete.")
+
     # If we already have git-lfs, we do nothing
     if shutil.which("git-lfs"):
         return
-
-    # Determine the git root directory
-    gitroot = os.path.abspath(
-        os.path.join(os.getcwd(), config.lfs_content_path_to_git_root)
-    )
 
     # Download the latest git-lfs tarball and check its checksum
     git_lfs_content = requests.get(GIT_LFS_FILE).content
@@ -44,9 +43,9 @@ def lfs_setup(_, config):
         env["PATH"] = os.environ["PATH"] + os.path.pathsep + tmp_dir
 
         # Fetch the LFS content of the repository
-        subprocess.check_call("git-lfs install".split(), env=env, cwd=gitroot)
-        subprocess.check_call("git-lfs fetch".split(), env=env, cwd=gitroot)
-        subprocess.check_call("git-lfs checkout".split(), env=env, cwd=gitroot)
+        subprocess.check_call("git-lfs install".split(), env=env)
+        subprocess.check_call("git-lfs fetch".split(), env=env)
+        subprocess.check_call("git-lfs checkout".split(), env=env)
 
     # Execute all of the given post commands
     for cmd in config.lfs_content_post_commands:
@@ -54,7 +53,7 @@ def lfs_setup(_, config):
 
 
 def setup(app):
-    app.add_config_value("lfs_content_path_to_git_root", ".", rebuild="")
+    app.add_config_value("lfs_content_path_to_git_root", None, rebuild="")
     app.add_config_value("lfs_content_post_commands", [], rebuild="")
     app.connect("config-inited", lfs_setup)
 

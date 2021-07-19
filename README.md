@@ -27,18 +27,11 @@ Add the following lines to your `conf.py`:
 extensions = [
     "sphinx_lfs_content",
 ]
-
-# The relative path from conf.py to the git repository root (defaults to ".")
-lfs_content_path_to_git_root = ".."
 ```
 
 That's all. The extension will check whether the system has `git-lfs` and download a version
 from the [`git-lfs` GitHub page](https://github.com/git-lfs/git-lfs), verify its checksum
 and checkout any LFS content.
-
-The configuration value `lfs_content_path_to_git_root` needs to be given despite the
-fact that this information could be retrieved with `git rev-parse --show-toplevel` in
-order to make the extension more robust against [recent build failures on ReadTheDocs](https://github.com/readthedocs/readthedocs.org/issues/8288).
 
 Additionally, a configuration value `lfs_content_post_commands` is available. It accepts a list
 of strings with commands that will be executed after the git-lfs checkout was performed.

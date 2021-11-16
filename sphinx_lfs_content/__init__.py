@@ -8,8 +8,8 @@ import tarfile
 import tempfile
 
 
-GIT_LFS_FILE = "https://github.com/git-lfs/git-lfs/releases/download/v2.13.3/git-lfs-linux-amd64-v2.13.3.tar.gz"
-GIT_LFS_CHECKSUM = "03197488f7be54cfc7b693f0ed6c75ac155f5aaa835508c64d68ec8f308b04c1"
+GIT_LFS_FILE = "https://github.com/git-lfs/git-lfs/releases/download/v3.0.2/git-lfs-linux-amd64-v3.0.2.tar.gz"
+GIT_LFS_CHECKSUM = "796f5ea0259eabe57f94a8ad1bb0d46806168df30b135a65d88f8a7ee1409e0b"
 
 
 def lfs_setup(_, config):

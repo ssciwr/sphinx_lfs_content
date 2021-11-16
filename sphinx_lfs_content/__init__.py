@@ -13,9 +13,6 @@ GIT_LFS_CHECKSUM = "796f5ea0259eabe57f94a8ad1bb0d46806168df30b135a65d88f8a7ee140
 
 
 def lfs_setup(_, config):
-    if config.lfs_content_path_to_git_root is not None:
-        raise sphinx.errors.SphinxWarning("The lfs_content_path_to_git_root configuration value is now obsolete.")
-
     # If we already have git-lfs, we do nothing
     if shutil.which("git-lfs"):
         return
@@ -53,7 +50,6 @@ def lfs_setup(_, config):
 
 
 def setup(app):
-    app.add_config_value("lfs_content_path_to_git_root", None, rebuild="")
     app.add_config_value("lfs_content_post_commands", [], rebuild="")
     app.connect("config-inited", lfs_setup)
 

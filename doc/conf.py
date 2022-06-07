@@ -18,11 +18,11 @@ sys.path.insert(0, os.path.abspath(".."))
 # -- Project information -----------------------------------------------------
 
 project = "sphinx_lfs_content"
-copyright = "2021, Scientific Software Center, Heidelberg University"
+copyright = "2021-2022, Scientific Software Center, Heidelberg University"
 author = "Dominic Kempf"
 
 # The full version, including alpha/beta/rc tags
-release = "1.1.0"
+release = "1.1.1"
 
 # -- General configuration ---------------------------------------------------
 

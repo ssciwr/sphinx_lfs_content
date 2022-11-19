@@ -21,6 +21,7 @@ setup(
         "requests",
     ],
     classifiers=[
+        "Framework :: Sphinx :: Extension",
         "Programming Language :: Python :: 3",
         "Operating System :: Unix ",
         "License :: OSI Approved :: MIT License",

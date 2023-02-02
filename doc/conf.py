@@ -28,8 +28,8 @@ release = "1.1.3"
 
 # Enabled Sphinx extensions
 extensions = [
-    "m2r2",
     "sphinx_lfs_content",
+    "sphinx_mdinclude",
 ]
 
 # Configuration values specific to sphinx_lfs_content

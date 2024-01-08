@@ -10,18 +10,17 @@ jobs:
   pypi-deploy:
     name: Deploying Python Package
     runs-on: ubuntu-20.04
+    permissions:
+      id-token: write
 
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
 
-    - uses: actions/setup-python@v4
+    - uses: actions/setup-python@v5
       name: Install Python
     
     - name: Build source distribution
       run: |
         python setup.py sdist
 
-    - uses: pypa/gh-action-pypi-publish@master
-      with:
-        user: __token__
-        password: ${{ secrets.PYPI_API_TOKEN }}
+    - uses: pypa/gh-action-pypi-publish@v1.8.11

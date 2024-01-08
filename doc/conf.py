@@ -5,7 +5,6 @@
 # https://www.sphinx-doc.org/en/master/usage/configuration.html
 
 import os
-import subprocess
 import sys
 
 # -- Path setup --------------------------------------------------------------
@@ -18,11 +17,11 @@ sys.path.insert(0, os.path.abspath(".."))
 # -- Project information -----------------------------------------------------
 
 project = "sphinx_lfs_content"
-copyright = "2021-2022, Scientific Software Center, Heidelberg University"
+copyright = "2021-2023, Scientific Software Center, Heidelberg University"
 author = "Dominic Kempf"
 
 # The full version, including alpha/beta/rc tags
-release = "1.1.3"
+release = "1.1.4"
 
 # -- General configuration ---------------------------------------------------
 

@@ -35,7 +35,7 @@ def lfs_setup(_, config):
             # This works around a bug in git-lfs where git-lfs is called recursively,
             # but the inner calls rely on git-lfs being in PATH.
             env = os.environ
-            env["PATH"] = os.environ["PATH"] + os.path.pathsep + os.path.join(tmp_dir, "git-lfs-3.4.0")
+            env["PATH"] = os.environ["PATH"] + os.path.pathsep + os.path.join(tmp_dir, "git-lfs-3.4.1")
 
             # Fetch the LFS content of the repository
             subprocess.check_call("git-lfs install".split(), env=env)

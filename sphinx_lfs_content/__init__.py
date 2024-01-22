@@ -51,4 +51,4 @@ def setup(app):
     app.add_config_value("lfs_content_post_commands", [], rebuild="")
     app.connect("config-inited", lfs_setup)
 
-    return {"version": "1.1.5", "parallel_read_safe": True}
+    return {"version": "1.1.6", "parallel_read_safe": True}

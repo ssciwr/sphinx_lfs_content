@@ -9,7 +9,7 @@ import tempfile
 
 
 GIT_LFS_FILE = "https://github.com/git-lfs/git-lfs/releases/download/v3.5.1/git-lfs-linux-amd64-v3.5.1.tar.gz"
-GIT_LFS_CHECKSUM = "03923d8badf5c382920390414ad7084c5d87b246b180474d09961e3831f552e2"
+GIT_LFS_CHECKSUM = "6f28eb19faa7a968882dca190d92adc82493378b933958d67ceaeb9ebe4d731e"
 
 
 def lfs_setup(_, config):

@@ -23,7 +23,7 @@ setup(
     classifiers=[
         "Framework :: Sphinx :: Extension",
         "Programming Language :: Python :: 3",
-        "Operating System :: Unix ",
+        "Operating System :: Unix",
         "License :: OSI Approved :: MIT License",
     ],
 )

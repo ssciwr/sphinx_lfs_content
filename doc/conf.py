@@ -21,7 +21,7 @@ copyright = "2021-2023, Scientific Software Center, Heidelberg University"
 author = "Dominic Kempf"
 
 # The full version, including alpha/beta/rc tags
-release = "1.1.7"
+release = "1.1.9"
 
 # -- General configuration ---------------------------------------------------
 

@@ -8,8 +8,8 @@ import tarfile
 import tempfile
 
 
-GIT_LFS_FILE = "https://github.com/git-lfs/git-lfs/releases/download/v3.6.1/git-lfs-linux-amd64-v3.6.1.tar.gz"
-GIT_LFS_CHECKSUM = "2138d2e405a12f1a088272e06790b76699b79cb90d0317b77aafaf35de908d76"
+GIT_LFS_FILE = "https://github.com/git-lfs/git-lfs/releases/download/v3.7.0/git-lfs-linux-amd64-v3.7.0.tar.gz"
+GIT_LFS_CHECKSUM = "e7ebba491af8a54e560be3a00666fa97e4cf2bbbb223178a0934b8ef74cf9bed"
 
 
 def lfs_setup(_, config):
@@ -35,7 +35,7 @@ def lfs_setup(_, config):
             # This works around a bug in git-lfs where git-lfs is called recursively,
             # but the inner calls rely on git-lfs being in PATH.
             env = os.environ
-            env["PATH"] = os.environ["PATH"] + os.path.pathsep + os.path.join(tmp_dir, "git-lfs-3.6.1")
+            env["PATH"] = os.environ["PATH"] + os.path.pathsep + os.path.join(tmp_dir, "git-lfs-3.7.0")
 
             # Fetch the LFS content of the repository
             subprocess.check_call("git-lfs install".split(), env=env)
@@ -51,4 +51,4 @@ def setup(app):
     app.add_config_value("lfs_content_post_commands", [], rebuild="")
     app.connect("config-inited", lfs_setup)
 
-    return {"version": "1.1.9", "parallel_read_safe": True}
+    return {"version": "1.1.10", "parallel_read_safe": True}

@@ -10,7 +10,7 @@ with open(os.path.join(this_directory, "README.md"), encoding="utf-8") as f:
 
 setup(
     name="sphinx_lfs_content",
-    version="1.1.9",
+    version="1.1.10",
     author="Dominic Kempf",
     author_email="dominic.kempf@iwr.uni-heidelberg.de",
     description="Ensure existence of LFS content in your LFS builds",
